@@ -24,6 +24,33 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "RegisterProduct",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Cover Intel I5\",\r\n    \"price\": 300,\r\n    \"active\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/products/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"products",
+						""
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
