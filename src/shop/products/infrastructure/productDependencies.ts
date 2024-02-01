@@ -2,12 +2,14 @@
 
 import { ProductController } from './ProductController'
 import { MongoProductRepository } from './MongoProductRepository'
-import { FindAllProducts } from '../application'
+import { FindAllProducts, RegisterProduct } from '../application'
 
 const productRepository = new MongoProductRepository();
 
 export const productFinAll = new FindAllProducts(productRepository);
+export const productoRegister = new RegisterProduct(productRepository);
 
 export const productController = new ProductController(
-    productFinAll
+    productFinAll,
+    productoRegister
 );

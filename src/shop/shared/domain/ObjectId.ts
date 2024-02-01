@@ -1,8 +1,7 @@
-//  src\shop\shared\domain\ObjetId.ts
+// src\shop\shared\domain\ObjectId.ts
 
 import { ObjectId as MongoObjectID } from 'mongodb';
 
-// Esto podría ser una clase abstracta
 export class ObjectId {
     public readonly value: string;
 
@@ -13,7 +12,6 @@ export class ObjectId {
 
     public static random(): ObjectId {
         const id = new MongoObjectID().toHexString();
-
         return new ObjectId(id);
     }
 

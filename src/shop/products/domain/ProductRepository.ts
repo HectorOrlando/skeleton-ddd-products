@@ -4,4 +4,5 @@ import { Product } from './Product';
 
 export interface ProductRepository {
     finAll(): Promise<Product[]>;
+    register(product: Product): Promise<void>;
 }

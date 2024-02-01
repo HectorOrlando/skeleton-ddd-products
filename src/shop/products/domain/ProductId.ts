@@ -1,8 +1,10 @@
 // src\shop\products\domain\ProductId.ts
 
-import { ObjectId } from "../../shared/domain/ObjetId";
+import { ObjectId } from "../../shared/domain/ObjectId";
 
 export class ProductId extends ObjectId {
+
+    // Método estático para generar un ProductId aleatorio
     public static random(): ProductId {
         return new ProductId(super.random().value);
     }

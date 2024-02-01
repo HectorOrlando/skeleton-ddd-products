@@ -1,6 +1,6 @@
 //  src\shop\products\infrastructure\ProductController.ts
 
-import { FindAllProducts } from '../application';
+import { FindAllProducts, RegisterProduct } from '../application';
 
 type ProductResponse = {
     id: string;
@@ -9,9 +9,16 @@ type ProductResponse = {
     active: boolean;
 }
 
+type RegisterProductRequest = {
+    name: string;
+    price: number;
+    active: boolean;
+}
+
 export class ProductController {
     constructor(
-        public findAll: FindAllProducts
+        public findAll: FindAllProducts,
+        public register: RegisterProduct,
     ) { }
 
     async findAllProducts(): Promise<ProductResponse[]> {
@@ -24,5 +31,14 @@ export class ProductController {
                 active: product.active
             }
         });
+    }
+
+    async registerProduct(request: RegisterProductRequest): Promise<void> {
+        const product = {
+            name: request.name,
+            price: request.price,
+            active: request.active
+        }
+        await this.register.run(product);
     }
 }

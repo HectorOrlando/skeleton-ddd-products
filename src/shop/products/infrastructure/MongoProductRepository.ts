@@ -2,7 +2,6 @@
 
 import { Collection, ObjectId } from 'mongodb';
 import { dbConnection } from '../../shared/infrastructure/connections/Connection';
-
 import { Product, ProductId, ProductRepository } from '../domain';
 
 type UserPrimitives = {
@@ -42,5 +41,15 @@ export class MongoProductRepository implements ProductRepository {
         } catch (error) {
             throw new Error("Error findAll products list.");
         }
+    }
+
+    async register(product: Product): Promise<void> {
+        const productToRegister = {
+            _id: new ObjectId(product.id.value),
+            name: product.name,
+            price: product.price,
+            active: product.active
+        }
+        await this.collection.insertOne(productToRegister);
     }
 }

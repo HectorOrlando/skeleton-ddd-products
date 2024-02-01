@@ -36,4 +36,8 @@ export class Product {
         return this._active;
     }
 
+    public static register(name: string, price: number, active: boolean): Product {
+        const id = ProductId.random();
+        return new Product(id, name, price, active);
+    }
 }
