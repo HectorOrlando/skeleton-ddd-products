@@ -26,7 +26,7 @@ export class ProductController {
         return products.map(product => {
             return {
                 id: product.id.value,
-                name: product.name,
+                name: product.name.value,
                 price: product.price,
                 active: product.active
             }

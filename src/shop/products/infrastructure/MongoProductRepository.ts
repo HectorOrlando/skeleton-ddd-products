@@ -2,9 +2,9 @@
 
 import { Collection, ObjectId } from 'mongodb';
 import { dbConnection } from '../../shared/infrastructure/connections/Connection';
-import { Product, ProductId, ProductRepository } from '../domain';
+import { Product, ProductId, ProductName, ProductRepository } from '../domain';
 
-type UserPrimitives = {
+type ProductPrimitives = {
     _id: ObjectId;
     name: string;
     price: number;
@@ -12,7 +12,7 @@ type UserPrimitives = {
 }
 
 export class MongoProductRepository implements ProductRepository {
-    private collection!: Collection<UserPrimitives>;
+    private collection!: Collection<ProductPrimitives>;
 
     constructor() { this.connect(); }
 
@@ -32,7 +32,7 @@ export class MongoProductRepository implements ProductRepository {
             return productFound.map(product => {
                 return new Product(
                     new ProductId(product._id.toHexString()),
-                    product.name,
+                    new ProductName(product.name),
                     product.price,
                     product.active
                 )
@@ -46,7 +46,7 @@ export class MongoProductRepository implements ProductRepository {
     async register(product: Product): Promise<void> {
         const productToRegister = {
             _id: new ObjectId(product.id.value),
-            name: product.name,
+            name: product.name.value,
             price: product.price,
             active: product.active
         }

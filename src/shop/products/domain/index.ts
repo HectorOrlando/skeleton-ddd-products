@@ -3,3 +3,4 @@
 export * from './Product';
 export * from './ProductId';
 export * from './ProductRepository';
+export * from './ProductName';

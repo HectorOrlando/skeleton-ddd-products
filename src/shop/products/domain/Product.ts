@@ -1,16 +1,16 @@
 //  C:\Users\orgui\Documents\githubProject\node\skeleton-ddd-products\src\shop\products\domain\Product.ts
 
-import { ProductId } from "./ProductId";
+import { ProductId, ProductName } from "./";
 
 export class Product {
     private readonly _id: ProductId;
-    private _name: string;
+    private readonly _name: ProductName;
     private _price: number;
     private _active: boolean;
 
     public constructor(
         id: ProductId,
-        name: string,
+        name: ProductName,
         price: number,
         active: boolean
     ) {
@@ -24,7 +24,7 @@ export class Product {
         return this._id;
     }
 
-    public get name(): string {
+    public get name(): ProductName {
         return this._name;
     }
 
@@ -38,6 +38,7 @@ export class Product {
 
     public static register(name: string, price: number, active: boolean): Product {
         const id = ProductId.random();
-        return new Product(id, name, price, active);
+        const productName = ProductName.create(name);
+        return new Product(id, productName, price, active);
     }
 }
