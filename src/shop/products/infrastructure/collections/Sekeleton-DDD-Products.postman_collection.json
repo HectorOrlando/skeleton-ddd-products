@@ -1,0 +1,29 @@
+{
+	"info": {
+		"_postman_id": "56c93554-1054-4c24-9fa6-e7a333d32364",
+		"name": "Sekeleton-DDD-Products",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27149440",
+		"_collection_link": "https://universal-equinox-284055.postman.co/workspace/Team-Workspace~236f65b9-db6e-4bd6-8357-2ce6cbbe0a37/collection/27149440-56c93554-1054-4c24-9fa6-e7a333d32364?action=share&source=collection_link&creator=27149440"
+	},
+	"item": [
+		{
+			"name": "FindAllProducts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/products/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"products",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

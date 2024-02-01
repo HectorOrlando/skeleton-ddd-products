@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 import express, { Application, NextFunction, Request, Response } from 'express';
 import cors from 'cors';
 import { productRouter } from '../routes/productRoutes';
-import { ErrorHandler } from '../error/ErrorHandler';
+import { ErrorHandler } from '../error';
 
 dotenv.config();    // Carga las variables de entorno desde .env
 
@@ -15,8 +15,8 @@ export class Server {
 
     constructor() {
         this.app = express();   // Creamos una instancia de Express para la aplicación
-        this.port = process.env.PORT || 3000;   // Definimos la ruta base para las rutas relacionadas con usuarios
-        this.usersRoutePath = '/products';   // Definimos la ruta base para las rutas relacionadas con usuarios
+        this.port = process.env.PORT || 3000;   // Definimos la ruta base para las rutas relacionadas con productos
+        this.usersRoutePath = '/products';   // Definimos la ruta base para las rutas relacionadas con productos
         this.middleware();  // Configuramos los middleware de la aplicación
         this.routes();  // Configuramos las rutas de la aplicación
     }

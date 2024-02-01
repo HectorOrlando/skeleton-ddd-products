@@ -3,9 +3,7 @@
 import { Collection, ObjectId } from 'mongodb';
 import { dbConnection } from '../../shared/infrastructure/connections/Connection';
 
-import { Product } from '../domain/Product';
-import { ProductRepository } from '../domain/ProductRepository';
-import { ProductId } from '../domain/ProductId';
+import { Product, ProductId, ProductRepository } from '../domain';
 
 type UserPrimitives = {
     _id: ObjectId;

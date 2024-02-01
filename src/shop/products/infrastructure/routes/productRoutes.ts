@@ -2,12 +2,12 @@
 
 import express, { NextFunction, Request, Response } from "express";
 import { productController } from '../productDependencies';
-import { ErrorHandler } from "../error/ErrorHandler";
+import { ErrorHandler } from "../error";
 
 // Creamos el enrutador para la entidad 'product'
 export const productRouter = express.Router();
 
-productRouter.get("/products", async (req: Request, res: Response, next: NextFunction) => {
+productRouter.get("/", async (req: Request, res: Response, next: NextFunction) => {
     try {
         const products = await productController.findAllProducts();
         return res.json({ products });
